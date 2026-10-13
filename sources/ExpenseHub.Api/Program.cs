@@ -71,7 +71,10 @@ internal static class Program
         builder.Services.AddScoped<AuthService>();
         builder.Services.AddScoped<RegistrationService>();
         builder.Services.AddScoped<AdminService>();
+<<<<<<< HEAD
         builder.Services.AddScoped<ExpenseWorkflowService>();
+=======
+>>>>>>> origin/i03-register-roles
 
         builder.Services.AddProblemDetails();
         builder.Services.AddExceptionHandler<DomainExceptionHandler>();
@@ -101,7 +104,10 @@ internal static class Program
             .WithName("GetHealth");
         app.MapAuthEndpoints();
         app.MapAdminEndpoints();
+<<<<<<< HEAD
         app.MapExpenseWorkflowEndpoints();
+=======
+>>>>>>> origin/i03-register-roles
 
         await app.RunAsync();
     }
