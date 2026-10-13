@@ -71,6 +71,7 @@ internal static class Program
         builder.Services.AddScoped<AuthService>();
         builder.Services.AddScoped<RegistrationService>();
         builder.Services.AddScoped<AdminService>();
+        builder.Services.AddScoped<ExpenseService>();
         builder.Services.AddScoped<ExpenseWorkflowService>();
 
         builder.Services.AddProblemDetails();
@@ -101,6 +102,7 @@ internal static class Program
             .WithName("GetHealth");
         app.MapAuthEndpoints();
         app.MapAdminEndpoints();
+        app.MapExpenseEndpoints();
         app.MapExpenseWorkflowEndpoints();
 
         await app.RunAsync();
