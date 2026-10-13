@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ExpenseHub.Api.Auth;
 using ExpenseHub.Api.Common;
 using ExpenseHub.Api.Domain;
+using ExpenseHub.Api.Expenses;
 using ExpenseHub.Api.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -67,6 +68,7 @@ internal static class Program
         builder.Services.AddScoped<CurrentUser>();
         builder.Services.AddScoped<TokenService>();
         builder.Services.AddScoped<AuthService>();
+        builder.Services.AddScoped<ExpenseWorkflowService>();
 
         builder.Services.AddProblemDetails();
         builder.Services.AddExceptionHandler<DomainExceptionHandler>();
@@ -95,6 +97,7 @@ internal static class Program
         app.MapGet("/health", () => Results.Ok(new { status = "ok" }))
             .WithName("GetHealth");
         app.MapAuthEndpoints();
+        app.MapExpenseWorkflowEndpoints();
 
         await app.RunAsync();
     }

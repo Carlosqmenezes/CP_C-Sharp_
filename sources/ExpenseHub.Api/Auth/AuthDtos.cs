@@ -15,7 +15,4 @@ internal sealed class LoginRequest
     public string Password { get; init; } = string.Empty;
 }
 
-internal sealed record LoginResponse(string AccessToken, DateTime ExpiresAtUtc)
-{
-    public string TokenType => "Bearer";
-}
+internal sealed record LoginResponse(string AccessToken, DateTime ExpiresAtUtc, string TokenType = "Bearer");
