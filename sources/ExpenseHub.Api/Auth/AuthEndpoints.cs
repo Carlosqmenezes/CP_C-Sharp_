@@ -11,6 +11,13 @@ internal static class AuthEndpoints
         app.MapPost("/login", async (LoginRequest request, AuthService auth) => Results.Ok(await auth.LoginAsync(request)))
             .AllowAnonymous();
 
+        app.MapPost("/register", async (RegisterRequest request, RegistrationService registration) =>
+        {
+            RegisterResponse response = await registration.RegisterAsync(request);
+            return Results.Created($"/api/admin/users/{response.Id}", response);
+        })
+            .AllowAnonymous();
+
         return app;
     }
 }

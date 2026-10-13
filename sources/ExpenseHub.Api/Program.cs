@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using ExpenseHub.Api.Admin;
 using ExpenseHub.Api.Auth;
 using ExpenseHub.Api.Common;
 using ExpenseHub.Api.Domain;
@@ -67,6 +68,8 @@ internal static class Program
         builder.Services.AddScoped<CurrentUser>();
         builder.Services.AddScoped<TokenService>();
         builder.Services.AddScoped<AuthService>();
+        builder.Services.AddScoped<RegistrationService>();
+        builder.Services.AddScoped<AdminService>();
 
         builder.Services.AddProblemDetails();
         builder.Services.AddExceptionHandler<DomainExceptionHandler>();
@@ -95,6 +98,7 @@ internal static class Program
         app.MapGet("/health", () => Results.Ok(new { status = "ok" }))
             .WithName("GetHealth");
         app.MapAuthEndpoints();
+        app.MapAdminEndpoints();
 
         await app.RunAsync();
     }
