@@ -5,5 +5,4 @@ namespace ExpenseHub.Api.Domain;
 public class ApplicationUser : IdentityUser
 {
 
-
 }

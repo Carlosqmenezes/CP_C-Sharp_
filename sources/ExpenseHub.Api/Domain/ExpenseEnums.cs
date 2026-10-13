@@ -1,5 +1,4 @@
 
-
 namespace ExpenseHub.Api.Domain;
 
 public enum ExpenseStatus
