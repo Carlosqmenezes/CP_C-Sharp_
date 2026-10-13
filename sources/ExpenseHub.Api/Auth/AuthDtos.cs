@@ -15,7 +15,18 @@ internal sealed class LoginRequest
     public string Password { get; init; } = string.Empty;
 }
 
-internal sealed record LoginResponse(string AccessToken, DateTime ExpiresAtUtc)
+internal sealed record LoginResponse(string AccessToken, DateTime ExpiresAtUtc, string TokenType = "Bearer");
+
+internal sealed class RegisterRequest
 {
-    public string TokenType => "Bearer";
+    [Required]
+    [EmailAddress]
+    [StringLength(256)]
+    public string Email { get; init; } = string.Empty;
+
+    [Required]
+    [StringLength(100, MinimumLength = 8)]
+    public string Password { get; init; } = string.Empty;
 }
+
+internal sealed record RegisterResponse(string Id, string Email);
