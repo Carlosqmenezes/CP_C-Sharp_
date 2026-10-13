@@ -2,14 +2,14 @@ using System;
 
 namespace ExpenseHub.Api.Domain;
 
-public class ExpenseCategory
+internal class ExpenseCategory
 {
     public int Id { get; set; }
 
     public string Name { get; set; } = string.Empty;
 }
 
-public class Expense
+internal class Expense
 {
     public Guid Id { get; set; }
 
@@ -32,7 +32,7 @@ public class Expense
     public DateTime UpdatedAtUtc { get; set; }
 }
 
-public class ExpenseHistory
+internal class ExpenseHistory
 {
     public int Id { get; set; }
 
@@ -53,7 +53,7 @@ public class ExpenseHistory
     public string? Changes { get; set; }
 }
 
-public class PaymentRecord
+internal class PaymentRecord
 {
     public Guid Id { get; set; }
 

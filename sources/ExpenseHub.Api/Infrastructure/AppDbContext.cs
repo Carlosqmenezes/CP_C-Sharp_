@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseHub.Api.Infrastructure;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<ApplicationUser>(options)
+internal class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<ApplicationUser>(options)
 {
     public DbSet<Expense> Expenses => Set<Expense>();
 
